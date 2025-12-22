@@ -42,8 +42,6 @@ Alternatives considered:
 
 - Adds Pydantic dependency (acceptable given FastAPI usage)
 
-- Slightly stricter than RFC 5322
-
 ### Follow-up tasks
 
 - Update API documentation
