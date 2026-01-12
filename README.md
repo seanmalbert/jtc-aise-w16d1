@@ -19,9 +19,12 @@ This project demonstrates effective code review practices using four types of co
 ├── models.py         # Pydantic models for request/response
 ├── tests/            # Pytest test suite
 │   └── test_auth.py
+├── docs/             # Documentation
+│   ├── adr/          # Architecture Decision Records
+│   │   └── adr-016.md
+│   └── review_notes.md  # Code review guide and conventional comments reference
 ├── requirements.txt  # Python dependencies
 ├── pytest.ini        # Pytest configuration
-├── review_notes.md   # Code review guide and conventional comments reference
 ├── .gitignore        # Git ignore patterns
 └── README.md         # This file
 ```
