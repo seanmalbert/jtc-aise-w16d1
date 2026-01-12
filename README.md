@@ -21,8 +21,10 @@ This project demonstrates effective code review practices using four types of co
 │   └── test_auth.py
 ├── docs/             # Documentation
 │   ├── adr/          # Architecture Decision Records
-│   │   └── adr-016.md
-│   └── review_notes.md  # Code review guide and conventional comments reference
+│   │   ├── adr-template.md      # ADR template for creating new records
+│   │   └── adr-demo.md          # Example ADR (Pydantic email validation)
+│   ├── review_notes.md          # Code review guide and conventional comments reference
+│   └── review-summary-notes-template.md # Template for code review notes
 ├── requirements.txt  # Python dependencies
 ├── pytest.ini        # Pytest configuration
 ├── .gitignore        # Git ignore patterns
