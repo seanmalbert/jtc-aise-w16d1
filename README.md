@@ -20,7 +20,10 @@ This project demonstrates effective code review practices using four types of co
 ├── tests/            # Pytest test suite
 │   └── test_auth.py
 ├── requirements.txt  # Python dependencies
-└── README.md        # This file
+├── pytest.ini        # Pytest configuration
+├── review_notes.md   # Code review guide and conventional comments reference
+├── .gitignore        # Git ignore patterns
+└── README.md         # This file
 ```
 
 ## Setup
