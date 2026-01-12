@@ -7,6 +7,7 @@ app = FastAPI(title="Auth Demo API")
 
 # In-memory storage for demo purposes
 users_db = {}
+active_sessions = []
 
 
 @app.post("/signup", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
@@ -69,11 +70,41 @@ async def sign_in(user: UserSignIn):
             detail="Invalid credentials"
         )
 
+    # Track active session
+    active_sessions.append(user.username)
+
     return UserResponse(
         username=user.username,
         email=stored_user["email"],
         message="Sign in successful"
     )
+
+
+@app.post("/logout", status_code=status.HTTP_200_OK)
+async def logout_user(user: UserSignIn):
+    """
+    Log out a user and end their session.
+
+    This endpoint removes the user from active sessions, ensuring
+    they must sign in again to access protected resources.
+
+    Args:
+        user: User credentials for logout verification
+
+    Returns:
+        dict: Logout confirmation message
+
+    Raises:
+        HTTPException: If user is not currently signed in
+    """
+    if user.username not in active_sessions:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="User is not currently signed in"
+        )
+
+    active_sessions.remove(user.username)
+    return {"message": f"User {user.username} logged out successfully"}
 
 
 @app.get("/")
