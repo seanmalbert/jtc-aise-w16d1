@@ -21,3 +21,10 @@ class UserResponse(BaseModel):
     username: str
     email: str
     message: str
+
+
+class PasswordReset(BaseModel):
+    """Model for password reset request."""
+    username: str
+    email: EmailStr
+    new_password: str
